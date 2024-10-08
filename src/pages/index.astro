@@ -1,7 +1,81 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import LogoPrincipal from "../components/LogoPrincipal/LogoPrincipal.astro";
+import Description from "../components/Description/Description.astro";
+import CarouselHome from "../components/Carousel/CarouselHome.jsx";
+import Button from "../components/Button/Button.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <h1>Welcome to <span class="text-gradient">Astro</span>.</h1>
+<Layout title="Home">
+  <section class="homeContainer">
+    <div class="LogoContainerPrincipal">
+      <LogoPrincipal srcImg="../../Logo.png" title="Logo/Nombre" />
+      <Description
+        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      />
+    </div>
+    <div class="carouselContainer">
+      <CarouselHome client:load />
+      <Button title="Ver Productos" />
+    </div>
+  </section>
 </Layout>
+<style>
+  .homeContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../bgHome.png");
+    background-size: cover; /* Ajusta el fondo para que cubra toda la pantalla */
+    background-position: center; /* Centra la imagen de fondo */
+    gap: 3rem; /* Reduce el gap para pantallas más pequeñas */
+    padding-bottom: 5rem; /* Reduce el padding en pantallas pequeñas */
+  }
+
+  .homeContainer .LogoContainerPrincipal {
+    margin-top: 5rem; /* Reduce el margen superior en pantallas pequeñas */
+  }
+
+  .homeContainer .carouselContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 3rem; /* Ajusta el espacio entre los elementos del carrusel */
+  }
+
+  /* Media queries para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .homeContainer {
+      gap: 2rem;
+      padding-bottom: 3rem;
+    }
+
+    .homeContainer .LogoContainerPrincipal {
+      margin-top: 3rem;
+    }
+
+    .homeContainer .carouselContainer {
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .homeContainer {
+      gap: 1.5rem;
+      padding-bottom: 2rem;
+    }
+
+    .homeContainer .LogoContainerPrincipal {
+      margin-top: 2rem;
+    }
+
+    .homeContainer .carouselContainer {
+      gap: 1.5rem;
+    }
+  }
+</style>

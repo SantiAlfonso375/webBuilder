@@ -1,0 +1,125 @@
+---
+
+---
+
+<footer class="footerContainer">
+  <section class="logoFooter">
+    <img src="../../../Logo.png" alt="" />
+    <p>&copy; 2024 All rights reserved</p>
+  </section>
+
+  <section class="linksFooter">
+    <ul>
+      <li><a href="/">Productos</a></li>
+      <li><a href="/">Iniciar Sesión</a></li>
+      <li><a href="/">Nosotros</a></li>
+      <li><a href="/">Contacto</a></li>
+    </ul>
+  </section>
+  <section class="contactFooter">
+    <span>Contactanos</span>
+    <span class="emailAndLocation">Company@name.com</span>
+    <span class="emailAndLocation">Córdoba, Argentina</span>
+  </section>
+</footer>
+<style>
+  .footerContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: transparent;
+    padding: 3rem;
+    gap: 2rem; /* Añadido para controlar el espacio entre los elementos */
+  }
+
+  /* Estructura del logo en el footer */
+  .logoFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Estructura de los enlaces del footer */
+  .linksFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .linksFooter ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .linksFooter ul li {
+    text-decoration: none;
+    list-style: none;
+  }
+
+  .linksFooter ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s; /* Transición suave para hover */
+  }
+
+  .linksFooter ul li a:hover {
+    color: #9f9f9f; /* Cambia de color en hover */
+  }
+
+  /* Estructura de contacto en el footer */
+  .contactFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .contactFooter .emailAndLocation {
+    color: #9f9f9f;
+  }
+
+  /* Media Queries para pantallas medianas (tablets) */
+  @media (max-width: 768px) {
+    .footerContainer {
+      flex-direction: column; /* Cambia la orientación de fila a columna */
+      padding: 2rem;
+      gap: 1.5rem; /* Ajusta el espacio entre los elementos */
+    }
+
+    .linksFooter ul {
+      gap: 0.8rem; /* Ajusta el espacio entre los enlaces */
+    }
+
+    .contactFooter {
+      align-items: center; /* Centra los elementos de contacto */
+    }
+  }
+
+  /* Media Queries para pantallas pequeñas (móviles) */
+  @media (max-width: 480px) {
+    .footerContainer {
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    .linksFooter ul {
+      gap: 0.6rem;
+    }
+
+    .linksFooter ul li a {
+      font-size: 0.9rem; /* Reduce el tamaño de la fuente */
+    }
+
+    .contactFooter {
+      align-items: center; /* Alinea al centro para dispositivos móviles */
+    }
+
+    .contactFooter .emailAndLocation {
+      font-size: 0.8rem; /* Reduce el tamaño del texto */
+    }
+  }
+</style>

@@ -1,0 +1,72 @@
+.carousel-container {
+  display: flex; /* Agregado para centrar el contenido */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  width: 80%;
+  height: 300px; /* Altura por defecto para pantallas grandes */
+  background: transparent;
+}
+
+.carousel-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000001;
+  height: 300px; /* Altura por defecto */
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Estilos para pantallas más pequeñas (tablets y mobile) */
+@media (max-width: 1024px) {
+  .carousel-container {
+    height: 250px; /* Ajusta la altura para pantallas medianas */
+  }
+
+  .carousel-card {
+    height: 250px;
+    width: 250px; /* Reduce el tamaño de las tarjetas */
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 200px; /* Ajusta la altura para pantallas más pequeñas */
+    justify-content: center; /* Mantiene la tarjeta centrada */
+  }
+
+  .carousel-card {
+    height: 200px;
+    width: 200px; /* Reduce aún más las tarjetas */
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 150px; /* Altura mínima para móviles */
+    justify-content: center; /* Mantiene la tarjeta centrada */
+  }
+
+  .carousel-card {
+    height: 150px;
+    width: 150px;
+    font-size: 12px; /* Reduce el tamaño del texto */
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

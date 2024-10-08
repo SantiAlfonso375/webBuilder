@@ -1,0 +1,138 @@
+---
+interface Props {
+  home: string;
+  about: string;
+  products: string;
+  contact: string;
+}
+
+const { home, about, products, contact } = Astro.props as Props;
+import Logo from "../Logo/Logo.astro";
+---
+
+<nav class="navbar">
+  <div class="navbar-brand">
+    <Logo srcImg="../../../Logo.png" title="Logo/title" />
+  </div>
+
+  <div class="hamburger" id="hamburger">
+    <!-- Icono del menú hamburguesa -->
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+
+  <div class="navbar-menu" id="navbar-menu">
+    <a href="/" class="navbar-item">{home}</a>
+    <a href={`/${about}`} class="navbar-item">{about}</a>
+    <a href={`/${products}`} class="navbar-item">{products}</a>
+    <a href={`/${contact}`} class="navbar-item">{contact}</a>
+  </div>
+</nav>
+
+<script>
+  // Script para abrir/cerrar el menú hamburguesa
+  document.getElementById("hamburger")?.addEventListener("click", function () {
+    const menu = document.getElementById("navbar-menu");
+    menu?.classList.toggle("active");
+  });
+</script>
+
+<style>
+  .navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    gap: 50rem;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    width: 4rem;
+  }
+
+  .navbar-menu {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .navbar-item {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .navbar-item:hover {
+    color: #ddd;
+  }
+
+  /* Menú hamburguesa */
+  .hamburger {
+    display: none; /* Ocultar en pantallas grandes */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 0.3rem;
+  }
+
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+
+  /* Estilos para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 0.7rem 1.5rem;
+      gap: 5rem;
+    }
+
+    .navbar-menu {
+      display: none; /* Ocultar el menú en pantallas pequeñas */
+      flex-direction: column;
+      position: absolute;
+      top: 5.5rem;
+      right: 0;
+      background-color: #111;
+      width: 100%;
+      padding: 1rem;
+      z-index: 100;
+      align-items: center;
+    }
+
+    .navbar-menu.active {
+      display: flex; /* Mostrar el menú cuando se activa */
+    }
+
+    .hamburger {
+      display: flex; /* Mostrar menú hamburguesa en pantallas pequeñas */
+    }
+  }
+
+  /* Efecto de animación en el menú */
+  .hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+</style>
